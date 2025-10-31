@@ -1,6 +1,7 @@
 package com.example.lv3
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -15,6 +16,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnFalse: Button
     private lateinit var btnNext: Button
 
+    private lateinit var btnPrev: Button
+
     private val questionList = listOf(
         Question(R.string.question_city, false),
         Question(R.string.question_city2, true),
@@ -24,15 +27,20 @@ class MainActivity : AppCompatActivity() {
 
     private var index = 0
 
+    private val stanjeCiklusa = "KvizStanje"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        Log.d(stanjeCiklusa, "Aktivnost kreirana")
+
         txtQuestion = findViewById<TextView>(R.id.txtQuestion)
         btnTrue = findViewById<Button>(R.id.btnTrue)
         btnFalse = findViewById<Button>(R.id.btnFalse)
         btnNext = findViewById<Button>(R.id.btnNext)
+        btnPrev = findViewById<Button>(R.id.btnPrev)
 
         updateQuestion()
 
@@ -54,6 +62,11 @@ class MainActivity : AppCompatActivity() {
             index = (index + 1) % questionList.size
             updateQuestion()
         }
+
+        btnPrev.setOnClickListener {
+            index = if (index - 1 < 0) questionList.size - 1 else index - 1
+            updateQuestion()
+        }
     }
 
     private fun updateQuestion() {
@@ -70,5 +83,25 @@ class MainActivity : AppCompatActivity() {
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
             .show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(stanjeCiklusa, "Aktivnost nastavljena")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(stanjeCiklusa, "Aktivnost pauzirana")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(stanjeCiklusa, "Aktivnost zaustavljena")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(stanjeCiklusa, "Aktivnost unistena")
     }
 }

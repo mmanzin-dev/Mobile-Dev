@@ -39,4 +39,11 @@
         android:layout_height="wrap_content"
         android:text="Next question">
     </Button>
+
+    <Button
+        android:id="@+id/btnPrev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Previous question">
+    </Button>
 </LinearLayout>

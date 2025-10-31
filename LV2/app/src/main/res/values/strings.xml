@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LV2</string>
+
+    <string name="question_city">Bjelovar je glavni grad Hrvatske.</string>
+    <string name="question_city2">Dugave se nalaze u Novom Zagrebu</string>
+    <string name="question_city3">Zagreb ima 3 mosta preko Save</string>
+    <string name="question_city4">Na Remizi postoji okretiste tramvaja</string>
+    <string name="question_city5">Tramvaj broj 13 vozi do Maksimira</string>
+
+    <string name="toast_true">Correct</string>
+    <string name="toast_false">False</string>
+</resources>

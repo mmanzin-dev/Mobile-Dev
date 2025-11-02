@@ -13,6 +13,7 @@ private lateinit var btnStart: Button
 private lateinit var btnStop: Button
 private lateinit var btnReset: Button
 private lateinit var btnBreak: Button
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,5 @@ class MainActivity : AppCompatActivity() {
         btnStop = findViewById<Button>(R.id.btnStop)
         btnReset = findViewById<Button>(R.id.btnReset)
         btnBreak = findViewById<Button>(R.id.btnBreak)
-
-
     }
 }
